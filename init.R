@@ -1,3 +1,5 @@
+devtools::install_github('edzer/units', type = 'source')
+install.packages('udunits2', type = 'source', repo = 'cran.rstudio.com')
 my_packages = c('shiny', 
                 'shinyjs',
                 'shinyBS', 

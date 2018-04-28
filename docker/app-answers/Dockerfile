@@ -135,6 +135,9 @@ RUN apt-get -y update \
 			build-essential \
 			gcc \
 			r-cran-raster \
+			libgeos-dev \
+			libgdal-dev \
+			gfortran \
 		&& rm -rf /var/lib/apt/lists/* \
 		&& cd /srv/shiny-server \
         && rm -rf * \
