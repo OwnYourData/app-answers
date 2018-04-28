@@ -129,18 +129,19 @@ RUN mkdir -p "$GEM_HOME" "$BUNDLE_BIN" \
 	&& chmod 777 "$GEM_HOME" "$BUNDLE_BIN"
 
 RUN apt-get -y update \
-		&& apt-get install -y --no-install-recommends \
+		&& DEBIAN_FRONTEND=noninteractive apt-get install -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' -y --no-install-recommends \
 			libv8-3.14-dev \
 			libsodium-dev \
 			build-essential \
 			gcc \
+			r-cran-raster \
 		&& rm -rf /var/lib/apt/lists/* \
 		&& cd /srv/shiny-server \
         && rm -rf * \
         && git clone https://github.com/OwnYourData/app-answers.git \ 
         && mv app-answers/* . \
         && rm -r app-answers \
-        && R -e "source('init.R')"
+        && R -e  "source('init.R')"
 
 EXPOSE 3838
 
