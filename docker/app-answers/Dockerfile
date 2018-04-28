@@ -107,11 +107,11 @@ RUN set -ex \
 		--enable-shared \
 	&& make -j "$(nproc)" \
 	&& make install \
-	\
-	&& apt-get update \
-	&& apt-get purge -y --auto-remove $buildDeps \
-	&& cd / \
-	&& rm -r /usr/src/ruby \
+#	\
+#	&& apt-get update \
+#	&& apt-get purge -y --auto-remove --no-install-recommends $buildDeps \
+#	&& cd / \
+#	&& rm -r /usr/src/ruby \
 	\
 	&& gem update --system "$RUBYGEMS_VERSION" \
 	&& gem install bundler --version "$BUNDLER_VERSION" --force \
