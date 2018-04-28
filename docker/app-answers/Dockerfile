@@ -138,13 +138,14 @@ RUN apt-get -y update \
 			libgeos-dev \
 			libgdal-dev \
 			gfortran \
+			libudunits2-dev \
 		&& rm -rf /var/lib/apt/lists/* \
 		&& cd /srv/shiny-server \
         && rm -rf * \
         && git clone https://github.com/OwnYourData/app-answers.git \ 
         && mv app-answers/* . \
         && rm -r app-answers \
-        && R -e  "source('init.R')"
+        && R -e "source('init.R')"
 
 EXPOSE 3838
 
