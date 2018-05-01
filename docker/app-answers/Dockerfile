@@ -147,7 +147,7 @@ RUN cd /srv/shiny-server \
         && mv app-answers/* . \
         && rm -r app-answers \
         && R -e "source('init.R')" \
-        && printf "OYD_SECRET=$OYD_SECRET\n" > /srv/shiny-server/.Renviron
+        && sed -i '2s/.*/printf \"OYD_SECRET=$OYD_SECRET\\n\" > \/srv\/shiny-server\/.Renviron/' /usr/bin/shiny-server.sh
 
 EXPOSE 3838
 
