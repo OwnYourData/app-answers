@@ -24,7 +24,7 @@ helpUrl <- 'https://www.ownyourdata.eu/apps/answers'
 
 # console logging
 oydLog <- function(msg)
-        cat(paste(Sys.time(), msg, "\n"))
+        cat(file=stderr(), paste(Sys.time(), msg, "\n"))
 oydLog('App start')
 
 # Version information
