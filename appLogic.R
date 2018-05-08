@@ -94,10 +94,8 @@ output$pageStub <- renderUI({
                                 answer_view <- gsub('\\[DATA_SNIPPET\\]',
                                                     data_snippet,
                                                     answer_view)
-                                
                                 eval(parse(text = answer_logic))
-                                
-                                
+
                                 answer_view %>%
                                         knitr::knit2html(
                                                 text = .,
