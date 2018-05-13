@@ -85,15 +85,9 @@ output$pageStub <- renderUI({
                                 data_snippet <- oydapp::msgDecrypt(current_data, key)
                                 answer_logic <- report_list[report_list$identifier == query[['page']], 'answer_logic']
                                 answer_logic <- rawToChar(jsonlite::base64_dec(answer_logic))
-                                answer_logic <- gsub('\\[DATA_SNIPPET\\]',
-                                                     data_snippet,
-                                                     answer_logic)
                                 answer_logic <- gsub("\r\n", "\n", answer_logic)
                                 answer_view <- report_list[report_list$identifier == query[['page']], 'answer_view']
                                 answer_view <- rawToChar(jsonlite::base64_dec(answer_view))
-                                answer_view <- gsub('\\[DATA_SNIPPET\\]',
-                                                    data_snippet,
-                                                    answer_view)
                                 eval(parse(text = answer_logic))
 
                                 answer_view %>%
