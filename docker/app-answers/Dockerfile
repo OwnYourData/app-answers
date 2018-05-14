@@ -2,7 +2,7 @@ FROM oydeu/oyd-shiny:latest
 MAINTAINER "Christoph Fabianek" christoph@ownyourdata.eu
 
 RUN apt-get -y update \
-	&& apt-get install -y --no-install-recommends \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' -y --no-install-recommends \
 		libv8-3.14-dev \
 		libsodium-dev \
 		build-essential \
@@ -12,7 +12,7 @@ RUN apt-get -y update \
 		libgdal-dev \
 		gfortran \
 		libudunits2-dev \
-  && rm -rf /var/lib/apt/lists/*
+	&& rm -rf /var/lib/apt/lists/*
 
 
 RUN cd /srv/shiny-server \
