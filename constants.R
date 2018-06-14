@@ -43,5 +43,21 @@ localization <- list(
         'missingKeyInfo' = list('de' = 'Es fehlt das Passwort zum Entschlüsseln deiner Daten! Verwende das Menu "Einstellungen" rechts oben, um das Passwort einzugeben.',
                                 'en' = 'The key to decrypt your data is missing! Use the settings menu in the upper right corner, to enter the key.'),
         'missingData' = list('de' = 'Derzeit stehen noch keine Daten zur Verfügung.',
-                             'en' = 'There are no records available yet.')
+                             'en' = 'There are no records available yet.'),
+        'records_since' = list('de' = 'Datensätze seit',
+                               'en' = 'records since'),
+        'time' = list('de' = 'Zeit',
+                      'en' = 'Time'),
+        'health' = list('de' = 'Gesundheit',
+                        'en' = 'Health'),
+        'finance' = list('de' = 'Finanzen',
+                         'en' = 'Finance'),
+        'online' = list('de' = 'Online',
+                        'en' = 'Online'),
+        'social' = list('de' = 'Soziales',
+                        'en' = 'Social'),
+        'housing' = list('de' = 'Wohnen',
+                         'en' = 'Housing'),
+        'mobility' = list('de' = 'Mobilität',
+                          'en' = 'Mobility')
 )
