@@ -7,7 +7,6 @@ RUN apt-get -y update \
 		libsodium-dev \
 		build-essential \
 		gcc \
-		r-cran-raster \
 		libgeos-dev \
 		libgdal-dev \
 		gfortran \
@@ -20,6 +19,7 @@ RUN cd /srv/shiny-server \
         && git clone https://github.com/OwnYourData/app-answers.git \ 
         && mv app-answers/* . \
         && rm -r app-answers \
+        && R -e "install.packages('devtools')" \
         && R -e "source('init.R')" \
         && sed -i '2s/.*/printf \"OYD_SECRET=$OYD_SECRET\\n\" > \/srv\/shiny-server\/.Renviron/' /usr/bin/shiny-server.sh
 
