@@ -156,42 +156,47 @@ output$pageStub <- renderUI({
                                 "mobility"="indigo")
                 }
                 if(is.null(query[['page']])){
-                        output_html <- paste0(
-                                "<div class='row'><div class='col-md-6'>", 
-                                        paste0(
+                        output_html <- ""
+                        if(nrow(answer_list) > 0){
+                                output_html <- paste0(
+                                        "<div class='row'><div class='col-md-6'>", 
                                                 paste0(
-                                                        "<a href='", current_url, "?page=", answer_list[,'identifier'], desktop, "' style='text-decoration: none;'>",
-                                                                "<div style='border-top: 1px lightgray;
-                                                                                                border-right: 2px lightgray;
-                                                                                                border-bottom: 2px lightgray;
-                                                                                                border-left: 5px ", answer_list[,'cat_color'], ";
-                                                                                                border-style: solid;
-                                                                                                padding: 5px;
-                                                                                                margin: 15px;'>",
-                                                                        "<p style='float: left;
-                                                                                        width: 75%;
-                                                                                        text-decoration: none;
-                                                                                        color: black;
-                                                                                        font-size: larger;'>", 
-                                                                                answer_list[,'name'], 
-                                                                        "</p>",
-                                                                        "<div style='float: right;
-                                                                                        color: white;
-                                                                                        background-color: ", answer_list[,'cat_color'], ";
-                                                                                        padding: 2px 10px;
-                                                                                        margin: -5px;'>", 
-                                                                                answer_list[,'cat_text'], 
+                                                        paste0(
+                                                                "<a href='", current_url, "?page=", answer_list[,'identifier'], desktop, "' style='text-decoration: none;'>",
+                                                                        "<div style='border-top: 1px lightgray;
+                                                                                                        border-right: 2px lightgray;
+                                                                                                        border-bottom: 2px lightgray;
+                                                                                                        border-left: 5px ", answer_list[,'cat_color'], ";
+                                                                                                        border-style: solid;
+                                                                                                        padding: 5px;
+                                                                                                        margin: 15px;'>",
+                                                                                "<p style='float: left;
+                                                                                                width: 75%;
+                                                                                                text-decoration: none;
+                                                                                                color: black;
+                                                                                                font-size: larger;'>", 
+                                                                                        answer_list[,'name'], 
+                                                                                "</p>",
+                                                                                "<div style='float: right;
+                                                                                                color: white;
+                                                                                                background-color: ", answer_list[,'cat_color'], ";
+                                                                                                padding: 2px 10px;
+                                                                                                margin: -5px;'>", 
+                                                                                        answer_list[,'cat_text'], 
+                                                                                "</div>",
+                                                                                "<div style='clear: both;'></div>", 
+                                                                                "<div style='color: gray;'>", 
+                                                                                        format(as.integer(answer_list[, 'count']), big.mark = ".", decimal.mark = ","), 
+                                                                                        " ", tr('records_since'), " ",
+                                                                                        as.character(as.POSIXct(answer_list[, 'since'], origin = "1970-01-01")),
+                                                                                "</div>",
                                                                         "</div>",
-                                                                        "<div style='clear: both;'></div>", 
-                                                                        "<div style='color: gray;'>", 
-                                                                                format(as.integer(answer_list[, 'count']), big.mark = ".", decimal.mark = ","), 
-                                                                                " ", tr('records_since'), " ",
-                                                                                as.character(as.POSIXct(answer_list[, 'since'], origin = "1970-01-01")),
-                                                                        "</div>",
-                                                                "</div>",
-                                                        "</a>"), 
-                                                collapse="</div><div class='col-md-6'>"), 
-                                "</div></div>")
+                                                                "</a>"), 
+                                                        collapse="</div><div class='col-md-6'>"), 
+                                        "</div></div>")
+                        } else {
+                                output_html <- paste0("<p>", tr('missingData'), "</p>")
+                        }
                         HTML(output_html)
                 } else {
                         # current_data <- report_list[report_list$identifier == query[['page']], 'current']
