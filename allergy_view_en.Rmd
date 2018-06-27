@@ -1,0 +1,27 @@
+```{r, echo=FALSE, out.width="100%"}
+library(shiny)
+tags$div(tags$strong("Pollination", class="col-xs-3"), tags$div(
+selectInput("pollination", label = span("Pollination", style="display:none;"), 
+    choices = list(
+        "Alder (Alnus)" = "alnus", 
+        "Ash (Fraxinus)" = "fraxinus",
+        "Beech (Fagus)" = "fagus",
+        "Birch (Betula)" = "betula",
+        "Grasses (Poaceae)" = "poaceae",
+        "Hazel (Corylus)" = "corylus",
+        "Mugwort (Artemisia)" = "artemisia",
+        "Oak (Quercus)" = "quercus",
+        "Plane tree (Platanus)" = "platanus",
+        "Ragweed (Ambrosia)" = "ambrosia"), 
+    selected = "poaceae"), class="col-xs-9", style="margin-top:-28px;"))
+tags$div(tags$strong("Time span", class="col-xs-3"), tags$div(
+selectInput("timespan", label = span("timespan", style="display:none;"), 
+    choices = list(
+        "2 weeks" = 1,
+        "1 months" = 2,
+        "6 months" = 3,
+        "this year" = 4,
+        "last year" = 5),
+    selected = 1), class="col-xs-9", style="margin-top:-28px;"))
+tags$div(uiOutput("pollGraph"), style="height:500px;")
+```

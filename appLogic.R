@@ -48,16 +48,20 @@ appServer <- function(input, output, session, tr, notif){
                                 port,
                                 session$clientData$url_pathname,
                                 desktop)
+                        
                         output$hdrPiaLinkImg <- renderUI({
                                 tags$div(
                                         tags$a(href=back_url,
                                                style='color:#777; text-decoration: none;',
                                                icon('arrow-left')),
-                                        tags$a(href=back_url,
-                                               style='color:#777; text-decoration: none;',
-                                               short),
                                         style='display: inline;'
                                 )
+                        })
+                        
+                        output$hdrTitle <- renderUI({
+                                tags$div(short,
+                                         style="color:#777;
+                                         text-align: center;")
                         })
                 }
         }
