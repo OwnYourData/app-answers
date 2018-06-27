@@ -175,7 +175,7 @@ output$pageStub <- renderUI({
                                                                                                         padding: 5px;
                                                                                                         margin: 15px;'>",
                                                                                 "<p style='float: left;
-                                                                                                width: 75%;
+                                                                                                width: 70%;
                                                                                                 text-decoration: none;
                                                                                                 color: black;
                                                                                                 font-size: larger;'>", 

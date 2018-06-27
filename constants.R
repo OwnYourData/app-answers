@@ -11,6 +11,7 @@ library(oydapp)
 library(shinyAce)
 library(shinyWidgets)
 library(dplyr)
+library(ggplot2)
 
 # sources for user specific UI
 source('uiBody.R')
