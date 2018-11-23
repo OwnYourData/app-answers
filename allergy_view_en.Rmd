@@ -7,14 +7,19 @@ selectInput("pollination", label = span("Pollination", style="display:none;"),
         "Ash (Fraxinus)" = "fraxinus",
         "Beech (Fagus)" = "fagus",
         "Birch (Betula)" = "betula",
+        "Cypress family (Cupressaceae)" = "cupressaceae",
+        "Fungal spores (Alternaria)" = "alternaria",
         "Grasses (Poaceae)" = "poaceae",
         "Hazel (Corylus)" = "corylus",
         "Mugwort (Artemisia)" = "artemisia",
+        "Nettle family (Urticaceae)" = "urticaceae",
         "Oak (Quercus)" = "quercus",
+        "Olive tree (Olea)" = "olea",
         "Plane tree (Platanus)" = "platanus",
-        "Ragweed (Ambrosia)" = "ambrosia"), 
+        "Ragweed (Ambrosia)" = "ambrosia",
+        "Rye (Secale)" = "secale"), 
     selected = "poaceae"), class="col-xs-9", style="margin-top:-28px;"))
-tags$div(tags$strong("Time span", class="col-xs-3"), tags$div(
+tags$div(tags$strong("Period", class="col-xs-3"), tags$div(
 selectInput("timespan", label = span("timespan", style="display:none;"), 
     choices = list(
         "2 weeks" = 1,

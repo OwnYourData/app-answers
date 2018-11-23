@@ -221,18 +221,20 @@ output$pageStub <- renderUI({
                         answer_logic <- rawToChar(jsonlite::base64_dec(answer_logic))
                         answer_logic <- gsub("\r\n", "\n", answer_logic)
                         repos_df <- jsonlite::fromJSON(answer_list[answer_list$identifier == query[['page']], 'repos'])
-                        for(j in rownames(repos_df)){
-                                answer_logic <- gsub(paste0("[oyd_", 
-                                                            repos_df[j, "name"], 
-                                                            "_oyd]"), 
-                                                     repos_df[j, "repo"], 
-                                                     answer_logic,
-                                                     fixed = TRUE)
-                        }
+                        # for(j in rownames(repos_df)){
+                        #         answer_logic <- gsub(paste0("[oyd_", 
+                        #                                     repos_df[j, "name"], 
+                        #                                     "_oyd]"), 
+                        #                              repos_df[j, "repo"], 
+                        #                              answer_logic,
+                        #                              fixed = TRUE)
+                        # }
                         answer_view <- answer_list[answer_list$identifier == query[['page']], 'answer_view']
                         answer_view <- rawToChar(jsonlite::base64_dec(answer_view))
                         eval(parse(text = answer_logic))
-
+                        
+                        save(answer_view, answer_logic, file='tmpInv0.RData')
+                        
                         answer_view %>%
                                 knitr::knit2html(
                                         text = .,

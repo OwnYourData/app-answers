@@ -20,6 +20,7 @@ source('uiBody.R')
 appName <- 'answers'
 appTitle <- 'Questions & Answers'
 app_id <- 'oyd.answers'
+plugin_identifier <- 'oyd.base'
 appRepoDefault <- 'oyd.settings'
 helpUrl <- 'https://www.ownyourdata.eu/apps/answers'
 
