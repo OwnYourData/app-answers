@@ -15,13 +15,13 @@ RUN apt-get -y update \
 
 
 RUN cd /srv/shiny-server \
-        && rm -rf * \
-        && git clone https://github.com/OwnYourData/app-answers.git \ 
-        && mv app-answers/* . \
-        && rm -r  app-answers \
-        && R -e "install.packages('devtools')" \
-        && R -e "source('init.R')" \
-        && sed -i '2s/.*/printf \"OYD_SECRET=$OYD_SECRET\\n\" > \/srv\/shiny-server\/.Renviron/' /usr/bin/shiny-server.sh
+        &&  rm -rf * \
+        &&  git clone https://github.com/OwnYourData/app-answers.git \ 
+        &&  mv app-answers/* . \
+        &&  rm -r  app-answers \
+        &&  R -e "install.packages('devtools')" \
+        &&  R -e "source('init.R')" \
+        &&  sed -i '2s/.*/printf \"OYD_SECRET=$OYD_SECRET\\n\" > \/srv\/shiny-server\/.Renviron/' /usr/bin/shiny-server.sh
 
 EXPOSE 3838
 

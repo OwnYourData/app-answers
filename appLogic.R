@@ -233,8 +233,6 @@ output$pageStub <- renderUI({
                         answer_view <- rawToChar(jsonlite::base64_dec(answer_view))
                         eval(parse(text = answer_logic))
                         
-                        save(answer_view, answer_logic, file='tmpInv0.RData')
-                        
                         answer_view %>%
                                 knitr::knit2html(
                                         text = .,
