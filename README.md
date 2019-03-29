@@ -20,4 +20,3 @@ Wenn du selbst an der App mitentwickeln möchtest, folge diesen Schritten:
 ## Lizenz
 
 [MIT Lizenz 2019 - OwnYourData.eu](https://raw.githubusercontent.com/OwnYourData/app-answers/master/LICENSE)
-# app-answers
